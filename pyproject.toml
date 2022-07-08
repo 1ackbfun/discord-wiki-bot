@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "discord-wiki-bot"
+version = "0.1.0"
+description = "Quick Wiki links for Discord message"
+authors = ["lackbfun <git@lackb.fun>"]
+packages = [
+    { include = "wiki" },
+]
+
+[tool.poetry.scripts]
+start = "wiki.bot:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+discord = "^1.7.3"
+"discord.ext" = "^0.8"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
