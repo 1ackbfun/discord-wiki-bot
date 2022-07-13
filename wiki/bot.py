@@ -38,11 +38,11 @@ async def on_ready():
 @bot.event
 async def on_message(ctx):
     #print(ctx.channel)
-    match_res = re.match(r'.*\[\[(.+)\]\].*', ctx.content, re.M | re.I)
+    match_res = re.match(r'.*\[\[(.+)\]\].*', ctx.content, re.M | re.I | re.S)
     if match_res:
         await ctx.channel.send(CONFIG["WIKI_URL"] +
                                urlencode(match_res.group(1)))
-    match_res = re.match(r'.*\{\{(.+)\}\}.*', ctx.content, re.M | re.I)
+    match_res = re.match(r'.*\{\{(.+)\}\}.*', ctx.content, re.M | re.I | re.S)
     if match_res:
         await ctx.channel.send(
             f'{CONFIG["WIKI_URL"]}Template:{urlencode(match_res.group(1))}')
